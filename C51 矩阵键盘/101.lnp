@@ -1,0 +1,7 @@
+"STARTUP.obj",
+"main.obj",
+"LED.obj",
+"kenscan.obj",
+"delay.obj" 
+TO "101" 
+RAMSIZE(256) 

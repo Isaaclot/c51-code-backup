@@ -1,0 +1,63 @@
+C51 COMPILER V9.01   LED                                                                   10/07/2014 17:03:29 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE LED
+OBJECT MODULE PLACED IN .\LED.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE ..\C51 矩阵键盘\LED.c BROWSE DEBUG OBJECTEXTEND PRINT(.\LED.lst) OBJECT(.\L
+                    -ED.obj)
+
+line level    source
+
+   1          #include <reg52.h>                         /*52系列单片机头文件*/
+   2          #include <delay.h>                         /*引用延迟函数的外部函数*/
+   3          void LED1 ()                               /*LED灯向左逐个流动*/
+   4          {
+   5   1              int i,a;
+   6   1              a = 0x01;                                               /*给中间变量赋值*/
+   7   1              for ( i=0 ; i<8 ; i++ )
+   8   1                      {       
+   9   2                              P2=~a;
+  10   2                              a<<=1;
+  11   2                              Delay10ms(50);
+*** WARNING C206 IN LINE 11 OF ..\C51 矩阵键盘\LED.C: 'Delay10ms': missing function-prototype
+*** ERROR C267 IN LINE 11 OF ..\C51 矩阵键盘\LED.C: 'Delay10ms': requires ANSI-style prototype
+  12   2                      }
+  13   1      }
+  14          
+  15          void LED2 ()                               /*LED灯向左隔一流动*/
+  16          {       
+  17   1              int i,a;
+  18   1              a = 0x01;                                               /*给中间变量赋值*/
+  19   1              for ( i=0 ; i<4 ; i++ )
+  20   1              {       
+  21   2                      P2=~a;
+  22   2                      a<<=2;
+  23   2                      Delay10ms(50);
+  24   2              }
+  25   1      }
+  26          
+  27          void LED3 ()                               /*LED向右逐一流动*/
+  28          {
+  29   1              int i,a;
+  30   1              a = 0x80;                                       /*给中间变量赋值*/
+  31   1              for ( i=0 ; i<8 ; i++ )
+  32   1              {
+  33   2                      P2=~a;
+  34   2                      a>>=1;
+  35   2                      Delay10ms(50);
+  36   2              }
+  37   1      }
+  38          
+  39          void LED4 ()                               /*LED灯向右跳动流*/
+  40          {
+  41   1              int i,a;
+  42   1              a = 0x80;                                               /*给中间变量赋值*/
+  43   1              for ( i=0 ; i<4 ; i++ )
+  44   1                      {
+  45   2                              P2=~a;
+  46   2                              a>>=2;
+  47   2                              Delay10ms(50);
+  48   2                      }
+  49   1      }
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  1 ERROR(S)

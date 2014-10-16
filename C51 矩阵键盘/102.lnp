@@ -1,0 +1,6 @@
+"main.obj",
+"delay.obj",
+"kenscan.obj",
+"LED.obj" 
+TO "102" 
+RAMSIZE(256) 

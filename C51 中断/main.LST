@@ -1,0 +1,58 @@
+C51 COMPILER V9.01   MAIN                                                                  10/15/2014 21:08:45 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include <delay.h>
+   3          #include <intconfig.h>
+   4          #include <tube.h>
+*** ERROR C132 IN LINE 11 OF TUBE.H: '_display': not in formal parameter list
+   5          
+   6          sbit K3=P3^2;              //定义外部中断的I/O口
+*** ERROR C141 IN LINE 6 OF MAIN.C: syntax error near 'sbit'
+   7          sbit K4=P3^3;
+   8          unsigned char KeyValue = 0;
+   9          
+  10          uchar n=0,s=0,f=0,m=0;                  /*定义时分秒显示数字的起始状态*/
+  11          
+  12          void main ()
+  13          {
+  14   1              IntConfiguration();
+  15   1              while (1)
+  16   1                      {
+  17   2                              if (KeyValue=1)
+  18   2                              {
+  19   3                                      if (m=0&&f=0&&s=0)
+  20   3                                              {
+  21   4                                                      delay10ms(100);
+  22   4                                                      m=m+1;                          /*秒钟累加*/
+  23   4                                                      if (m==60)                      /*秒钟累加到60停止*/
+  24   4                                                              {
+  25   5                                                                      m=0;
+  26   5                                                                      f=f+1;      /*分钟累加*/
+  27   5                                                                      if (f==60)      /*分钟累加到60停止*/
+  28   5                                                                              {
+  29   6                                                                                      f=0;
+  30   6                                                                                      s++;     /*时钟累加*/
+  31   6                                                                              }
+  32   5                                                              }       
+  33   4                                                              display(m,f,s);
+  34   4                                              }       
+  35   3                                      else
+  36   3                                              display (m,f,s);   //数码管显示数非零的时候，直接显示该数字
+  37   3      
+  38   3                              }       
+  39   2                              if (KeyValue=0)
+  40   2                                      s=0,f=0,m=0;  //将时分秒清零
+  41   2                                      display (m,f,s);        //显示按下K4时的状态
+  42   2                                                              
+  43   2                      }
+  44   1              
+  45   1      }
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  2 ERROR(S)

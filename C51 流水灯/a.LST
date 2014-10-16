@@ -1,0 +1,45 @@
+C51 COMPILER V9.01   A                                                                     09/24/2014 20:22:01 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE A
+OBJECT MODULE PLACED IN a.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE a.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <reg51.h>                /*定义51功能的寄存器*/
+   2          #define uchar unsigned char       /*宏定义*/
+   3          #define uint unsigned int
+   4          uchar a;
+   5          void delay(uint ms)        /*定义延迟函数*/
+   6          {
+   7   1        uchar i,j;
+   8   1        for(i=ms;i>0;i--)
+   9   1          for(j=110;j>0;j--);           /*循环*/
+  10   1      }
+  11          void main()                                               /*主函数*/
+  12          {
+  13   1        a=0x01;
+  14   1        while(1)
+  15   1        {
+  16   2              P1=~a;
+  17   2              delay(200);                                                       /*调用延迟函数*/
+  18   2              a=a<<1;
+  19   2              if(a==0x00)
+  20   2              a=0x01;
+  21   2         }
+  22   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     42    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

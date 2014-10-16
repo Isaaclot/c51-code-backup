@@ -1,0 +1,6 @@
+"STARTUP.obj",
+"smg.obj",
+"main.obj",
+"delay.obj" 
+TO "N_tube" 
+RAMSIZE(256) 
