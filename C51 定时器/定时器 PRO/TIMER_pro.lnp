@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"main.obj" 
+TO "TIMER_pro" 
+RAMSIZE(256) 
