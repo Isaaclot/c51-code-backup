@@ -2,7 +2,8 @@
 #include <reg52.h>
 #include <delay.h>
 
-
+void Delay10ms (unsigned int c)
+void display(uchar s,uchar f,uchar m);
 sbit dula=P2^6;			 /*ÉêÃ÷U1Ëø´æÆ÷µÄËø´æ¶Ë*/
 sbit wela=P2^7;			 /*ÉêÃ÷U2Ëø´æÆ÷µÄËø´æ¶Ë*/
 

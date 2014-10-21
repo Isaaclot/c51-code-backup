@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   TUBE                                                                  10/15/2014 21:08:51 PAGE 1   
+C51 COMPILER V9.01   TUBE                                                                  10/21/2014 16:28:07 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE TUBE
@@ -11,93 +11,94 @@ line level    source
    2          #include <reg52.h>
    3          #include <delay.h>
    4          
-   5          
-   6          sbit dula=P2^6;                  /*申明U1锁存器的锁存端*/
-   7          sbit wela=P2^7;                  /*申明U2锁存器的锁存端*/
-   8          
-   9          uchar smg1[16]={
-  10                  0x3f,0x06,0x5b,0x4f,
-  11                  0x66,0x6d,0x7d,0x07,
-  12                  0x7f,0x5e6f,0x77,0x7c,
-  13                  0x39,0x5e,0x79,0x71
-  14                  };                                       /*数码管编码定义*/
-  15          
-  16          uchar smg2[]={
-  17                  0xbf,0x86,0xdb,0xcf,
-  18                  0xe6,0xed,0xfd,0x87,
-  19                  0xff,0xef
-  20                  };                                  /*后面带小数点码管编码定义*/
-  21          
+   5          void Delay10ms (unsigned int c)
+   6          void display(uchar s,uchar f,uchar m);
+*** ERROR C132 IN LINE 6 OF TUBE.C: '_display': not in formal parameter list
+   7          sbit dula=P2^6;                  /*申明U1锁存器的锁存端*/
+*** ERROR C141 IN LINE 7 OF TUBE.C: syntax error near 'sbit'
+   8          sbit wela=P2^7;                  /*申明U2锁存器的锁存端*/
+   9          
+  10          uchar smg1[16]={
+  11                  0x3f,0x06,0x5b,0x4f,
+  12                  0x66,0x6d,0x7d,0x07,
+  13                  0x7f,0x5e6f,0x77,0x7c,
+  14                  0x39,0x5e,0x79,0x71
+  15                  };                                       /*数码管编码定义*/
+  16          
+  17          uchar smg2[]={
+  18                  0xbf,0x86,0xdb,0xcf,
+  19                  0xe6,0xed,0xfd,0x87,
+  20                  0xff,0xef
+  21                  };                                  /*后面带小数点码管编码定义*/
   22          
-  23          void display(uchar mz,uchar fz,uchar sz)         /*数码管显示“时分秒”*/
-  24          {
-  25   1         uchar s1,s2,f1,f2,m1,m2;       /*定义数码管上6位数字*/
-  26   1         s1=sz/10;                              /*拆分时分秒显示*/
-  27   1         s2=sz%10;
-  28   1         f1=fz/10;
-  29   1         f2=fz%10;
-  30   1         m1=mz/10;
-  31   1         m2=mz%10;
-  32   1         
-  33   1         dula=1;                                /*打开U1锁存器*/
-  34   1         P0=smg1[s1];                  /*调用数组编码送入段选信号*/
-  35   1         dula=0;                               /*关闭U1锁存器*/
-  36   1         P0=0xff;                               /*送入位选数据前关闭所有显示，防止打开位选锁存时*/
-  37   1         wela=1;                                /*打开U2锁存器*/
-  38   1         P0=0xfe;                               /*送入位信号*/
-  39   1         wela=0;                                /*关闭U2锁存器*/
-  40   1         delay10ms(5);                           /*延迟*/
-*** WARNING C206 IN LINE 40 OF TUBE.C: 'delay10ms': missing function-prototype
-*** ERROR C267 IN LINE 40 OF TUBE.C: 'delay10ms': requires ANSI-style prototype
-  41   1         
-  42   1         dula=1;
-  43   1         P0=smg2[s2];              /*调用数组编码送入位选信号*/
-  44   1         dula=0;
-  45   1         P0=0xff;
-  46   1         wela=1;
-  47   1         P0=0xfd;
-  48   1         wela=0;
-  49   1         delay10ms(5);
-  50   1         
-  51   1         dula=1;
-  52   1         P0=smg1[f1];                  /*调用数组编码送入位选信号*/
-  53   1         dula=0;
-C51 COMPILER V9.01   TUBE                                                                  10/15/2014 21:08:51 PAGE 2   
+  23          
+  24          void display(uchar mz,uchar fz,uchar sz)         /*数码管显示“时分秒”*/
+  25          {
+  26   1         uchar s1,s2,f1,f2,m1,m2;       /*定义数码管上6位数字*/
+  27   1         s1=sz/10;                              /*拆分时分秒显示*/
+  28   1         s2=sz%10;
+  29   1         f1=fz/10;
+  30   1         f2=fz%10;
+  31   1         m1=mz/10;
+  32   1         m2=mz%10;
+  33   1         
+  34   1         dula=1;                                /*打开U1锁存器*/
+  35   1         P0=smg1[s1];                  /*调用数组编码送入段选信号*/
+  36   1         dula=0;                               /*关闭U1锁存器*/
+  37   1         P0=0xff;                               /*送入位选数据前关闭所有显示，防止打开位选锁存时*/
+  38   1         wela=1;                                /*打开U2锁存器*/
+  39   1         P0=0xfe;                               /*送入位信号*/
+  40   1         wela=0;                                /*关闭U2锁存器*/
+  41   1         delay10ms(5);                           /*延迟*/
+  42   1         
+  43   1         dula=1;
+  44   1         P0=smg2[s2];              /*调用数组编码送入位选信号*/
+  45   1         dula=0;
+  46   1         P0=0xff;
+  47   1         wela=1;
+  48   1         P0=0xfd;
+  49   1         wela=0;
+  50   1         delay10ms(5);
+  51   1         
+  52   1         dula=1;
+  53   1         P0=smg1[f1];                  /*调用数组编码送入位选信号*/
+C51 COMPILER V9.01   TUBE                                                                  10/21/2014 16:28:07 PAGE 2   
 
-  54   1         P0=0xff;
-  55   1         wela=1;
-  56   1         P0=0xfb;
-  57   1         wela=0;
-  58   1         delay10ms(5);
-  59   1         
-  60   1         dula=1;
-  61   1         P0=smg2[f2];                  /*调用数组编码送入位选信号*/
-  62   1         dula=0;
-  63   1         P0=0xff;
-  64   1         wela=1;
-  65   1         P0=0xf7;
-  66   1         wela=0;
-  67   1         delay10ms(5);
-  68   1         
-  69   1         dula=1;
-  70   1         P0=smg1[m1];                   /*调用数组编码送入位选信号*/
-  71   1         dula=0;
-  72   1      
-  73   1         P0=0xff;
-  74   1         wela=1;
-  75   1         P0=0xef;
-  76   1         wela=0;
-  77   1         delay10ms(5);
-  78   1         
-  79   1         dula=1;
-  80   1         P0=smg1[m2];                  /*调用数组编码送入位选信号*/
-  81   1         dula=0;
-  82   1      
-  83   1         P0=0xff;
-  84   1         wela=1;
-  85   1         P0=0xdf;
-  86   1         wela=0;
-  87   1         delay10ms(5);
-  88   1      }
+  54   1         dula=0;
+  55   1         P0=0xff;
+  56   1         wela=1;
+  57   1         P0=0xfb;
+  58   1         wela=0;
+  59   1         delay10ms(5);
+  60   1         
+  61   1         dula=1;
+  62   1         P0=smg2[f2];                  /*调用数组编码送入位选信号*/
+  63   1         dula=0;
+  64   1         P0=0xff;
+  65   1         wela=1;
+  66   1         P0=0xf7;
+  67   1         wela=0;
+  68   1         delay10ms(5);
+  69   1         
+  70   1         dula=1;
+  71   1         P0=smg1[m1];                   /*调用数组编码送入位选信号*/
+  72   1         dula=0;
+  73   1      
+  74   1         P0=0xff;
+  75   1         wela=1;
+  76   1         P0=0xef;
+  77   1         wela=0;
+  78   1         delay10ms(5);
+  79   1         
+  80   1         dula=1;
+  81   1         P0=smg1[m2];                  /*调用数组编码送入位选信号*/
+  82   1         dula=0;
+  83   1      
+  84   1         P0=0xff;
+  85   1         wela=1;
+  86   1         P0=0xdf;
+  87   1         wela=0;
+  88   1         delay10ms(5);
+  89   1      }
 
-C51 COMPILATION COMPLETE.  1 WARNING(S),  1 ERROR(S)
+C51 COMPILATION COMPLETE.  0 WARNING(S),  2 ERROR(S)
