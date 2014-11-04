@@ -347,19 +347,9 @@
           <GroupName>Source Group 1</GroupName>
           <Files>
             <File>
-              <FileName>STARTUP.A51</FileName>
-              <FileType>2</FileType>
-              <FilePath>.\STARTUP.A51</FilePath>
-            </File>
-            <File>
               <FileName>led 1.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\led 1.c</FilePath>
-            </File>
-            <File>
-              <FileName>led 2.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\led 2.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -3,7 +3,83 @@
 <pre>
 <h1>礦ision Build Log</h1>
 <h2>Project:</h2>
-D:\C51 单片机学习 程序存盘\C51 流水灯\zzz.uvproj
-Project File Date:  09/24/2014
+C:\Users\Channe\Documents\GitHub\Hardware-Code\C51 流水灯\zzz.uvproj
+Project File Date:  11/01/2014
 
 <h2>Output:</h2>
+compiling led 1.c...
+LED 1.C(8): error C202: 'i': undefined identifier
+LED 1.C(10): error C202: 'LED': undefined identifier
+led 1.c - 2 Error(s), 0 Warning(s).
+compiling led 1.c...
+LED 1.C(3): error C247: non-address/-constant initializer
+led 1.c - 1 Error(s), 0 Warning(s).
+compiling led 1.c...
+LED 1.C(3): error C247: non-address/-constant initializer
+led 1.c - 1 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling led 1.c...
+LED 1.C(3): error C247: non-address/-constant initializer
+Target not created
+compiling led 1.c...
+LED 1.C(3): error C247: non-address/-constant initializer
+led 1.c - 1 Error(s), 0 Warning(s).
+compiling led 1.c...
+LED 1.C(3): error C247: non-address/-constant initializer
+LED 1.C(11): error C202: 'LED': undefined identifier
+led 1.c - 2 Error(s), 0 Warning(s).
+compiling led 1.c...
+LED 1.C(3): error C247: non-address/-constant initializer
+led 1.c - 1 Error(s), 0 Warning(s).
+compiling led 1.c...
+LED 1.C(12): warning C206: 'Delay': missing function-prototype
+LED 1.C(12): error C267: 'Delay': requires ANSI-style prototype
+led 1.c - 1 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling led 1.c...
+LED 1.C(12): warning C206: 'Delay': missing function-prototype
+LED 1.C(12): error C267: 'Delay': requires ANSI-style prototype
+LED 1.C(22): error C231: 'Delay': redefinition
+LED 1.C(29): error C141: syntax error near '}'
+LED 1.C(30): error C231: 'Delay': redefinition
+Target not created
+compiling led 1.c...
+LED 1.C(12): warning C206: 'Delay': missing function-prototype
+LED 1.C(12): error C267: 'Delay': requires ANSI-style prototype
+LED 1.C(22): error C231: 'Delay': redefinition
+LED 1.C(29): error C141: syntax error near '}'
+LED 1.C(30): error C231: 'Delay': redefinition
+led 1.c - 4 Error(s), 1 Warning(s).
+compiling led 1.c...
+LED 1.C(7): error C132: 'main': not in formal parameter list
+LED 1.C(7): error C141: syntax error near '{'
+LED 1.C(10): error C132: 'i': not in formal parameter list
+LED 1.C(10): error C136: 'i': 'void' on variable
+LED 1.C(10): error C132: 'i': not in formal parameter list
+LED 1.C(12): error C136: 'LED': 'void' on variable
+LED 1.C(12): error C244: 'LED': can't initialize, bad type or class
+LED 1.C(12): error C136: 'LED': 'void' on variable
+LED 1.C(12): error C132: 'LED': not in formal parameter list
+LED 1.C(13): error C141: syntax error near '50000'
+LED 1.C(13): error C132: 'Delay': not in formal parameter list
+LED 1.C(14): error C141: syntax error near '}'
+LED 1.C(15): error C141: syntax error near '=', expected ')'
+LED 1.C(15): error C129: missing ';' before '<'
+led 1.c - 14 Error(s), 0 Warning(s).
+compiling led 1.c...
+LED 1.C(30): error C141: syntax error near '}'
+led 1.c - 1 Error(s), 0 Warning(s).
+compiling led 1.c...
+LED 1.C(31): error C141: syntax error near '}'
+led 1.c - 1 Error(s), 0 Warning(s).
+compiling led 1.c...
+led 1.c - 0 Error(s), 0 Warning(s).
+compiling led 1.c...
+led 1.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=11.0 xdata=0 code=138
+creating hex file from "zzz"...
+"zzz" - 0 Error(s), 0 Warning(s).
+compiling led 1.c...
+led 1.c - 0 Error(s), 0 Warning(s).
